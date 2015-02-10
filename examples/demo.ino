@@ -7,8 +7,7 @@
  *
  */
 
-#include <Wire.h>
-#include <ArduinoNunchuk.h>
+#include <nunchuk.h>
 
 #define BAUDRATE 19200
 

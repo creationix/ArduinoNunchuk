@@ -12,7 +12,7 @@
  *
  */
 
-#include "ArduinoNunchuk.h"
+#include "nunchuk.h"
 
 #define ADDRESS 0x52
 
