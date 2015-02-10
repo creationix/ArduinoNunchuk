@@ -1,0 +1,8 @@
+{
+  "name": "nunchuk",
+  "author": "Gabriel Bianconi <bianconi.gabriel@gmail.com>",
+  "maintainer": "Tim Caswell <tim@creationix.com>",
+  "license": "BSD",
+  "version": "1.0.0",
+  "description": "A simple class for interfacing with Wii Nuhchuks via I2C"
+}
