@@ -1,11 +1,20 @@
 /*
- * ArduinoNunchukDemo.ino
+ * wiichunk-demo.ino
  *
- * Copyright 2011-2013 Gabriel Bianconi, http://www.gabrielbianconi.com/
+ * Copyright 2015 - Tim Caswell <tim@creationix.com>
  *
- * Project URL: http://www.gabrielbianconi.com/projects/arduinonunchuk/
+ * Based on: https://github.com/GabrielBianconi/ArduinoNunchuk
+ * but packaged and patched for spark.io
+ *
+ *  To setup I2C for sparkcore:
+ *
+ *    Clk  -> D1 (with 10k pullup resustor)
+ *    Data -> D0 (with 10k pullup resustor)
+ *    3.3v -> 3V3
+ *    Gnd  -> GND
  *
  */
+
 
 #include "nunchuk.h"
 

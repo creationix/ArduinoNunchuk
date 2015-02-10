@@ -1,21 +1,17 @@
 /*
- * ArduinoNunchuk.h - Improved Wii Nunchuk library for Arduino
+ * SparkNunchuk.h - Spark customized library for nunchuk
  *
- * Copyright 2011-2013 Gabriel Bianconi, http://www.gabrielbianconi.com/
+ * Copyright 2015 - Tim Caswell <tim@creationix.com>
  *
- * Project URL: http://www.gabrielbianconi.com/projects/arduinonunchuk/
- *
- * Based on the following resources:
- *   http://www.windmeadow.com/node/42
- *   http://todbot.com/blog/2008/02/18/wiichuck-wii-nunchuck-adapter-available/
- *   http://wiibrew.org/wiki/Wiimote/Extension_Controllers
+ * Based on: https://github.com/GabrielBianconi/ArduinoNunchuk
+ * but packaged and patched for spark.io
  *
  */
 
-#ifndef ArduinoNunchuk_H
-#define ArduinoNunchuk_H
+#ifndef SparkNunchuk_H
+#define SparkNunchuk_H
 
-class ArduinoNunchuk
+class SparkNunchuk
 {
   public:
     int analogX;
@@ -30,7 +26,7 @@ class ArduinoNunchuk
     void update();
 
   private:
-    void _sendByte(byte data, byte location);
+    void _sendByte(char data, char location);
 };
 
 #endif
