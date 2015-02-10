@@ -7,7 +7,7 @@
  *
  */
 
-#include <nunchuk.h>
+#include "nunchuk.h"
 
 #define BAUDRATE 19200
 
