@@ -12,8 +12,6 @@
  *
  */
 
-#include <Arduino.h>
-#include <Wire.h>
 #include "ArduinoNunchuk.h"
 
 #define ADDRESS 0x52
