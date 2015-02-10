@@ -11,6 +11,11 @@
 #ifndef SparkNunchuk_H
 #define SparkNunchuk_H
 
+#if defined(SPARK)
+#include "application.h"
+#endif
+
+
 class SparkNunchuk
 {
   public:
