@@ -1,4 +1,6 @@
-# ArduinoNunchuk
+# SparkNunchuk
+
+Spark.io friendly fork of ArduinoNunchuk customized by @creationix.
 
 ## Introduction
 
