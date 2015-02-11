@@ -16,11 +16,11 @@
  */
 
 
-#include "nunchuk.h"
+#include "nunchuk/nunchuk.h"
 
 #define BAUDRATE 19200
 
-ArduinoNunchuk nunchuk = ArduinoNunchuk();
+static SparkNunchuk nunchuk = SparkNunchuk();
 
 void setup()
 {
