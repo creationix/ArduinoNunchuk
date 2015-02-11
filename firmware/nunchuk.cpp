@@ -1,59 +1,48 @@
 /*
- * SparkNunchuk.h - Spark customized library for nunchuk
+ * wiichunk-demo.ino
  *
  * Copyright 2015 - Tim Caswell <tim@creationix.com>
  *
  * Based on: https://github.com/GabrielBianconi/ArduinoNunchuk
  * but packaged and patched for spark.io
  *
+ *  To setup I2C for sparkcore:
+ *
+ *    Clk  -> D1 (with 10k pullup resustor)
+ *    Data -> D0 (with 10k pullup resustor)
+ *    3.3v -> 3V3
+ *    Gnd  -> GND
+ *
  */
 
-#include "nunchuk.h"
 
-#define ADDRESS 0x52
+#include "nunchuk/nunchuk.h"
 
-void SparkNunchuk::init()
+#define BAUDRATE 19200
+
+static SparkNunchuk nunchuk = SparkNunchuk();
+
+void setup()
 {
-  Wire.begin();
-
-  SparkNunchuk::_sendByte(0x55, 0xF0);
-  SparkNunchuk::_sendByte(0x00, 0xFB);
-
-  SparkNunchuk::update();
+  Serial.begin(BAUDRATE);
+  nunchuk.init();
 }
 
-void SparkNunchuk::update()
+void loop()
 {
-  int count = 0;
-  int values[6];
+  nunchuk.update();
 
-  Wire.requestFrom(ADDRESS, 6);
-
-  while(Wire.available())
-  {
-    values[count] = Wire.read();
-    count++;
-  }
-
-  SparkNunchuk::analogX = values[0];
-  SparkNunchuk::analogY = values[1];
-  SparkNunchuk::accelX = (values[2] << 2) | ((values[5] >> 2) & 3);
-  SparkNunchuk::accelY = (values[3] << 2) | ((values[5] >> 4) & 3);
-  SparkNunchuk::accelZ = (values[4] << 2) | ((values[5] >> 6) & 3);
-  SparkNunchuk::zButton = !((values[5] >> 0) & 1);
-  SparkNunchuk::cButton = !((values[5] >> 1) & 1);
-
-  SparkNunchuk::_sendByte(0x00, 0x00);
-}
-
-void SparkNunchuk::_sendByte(char data, char location)
-{
-  Wire.beginTransmission(ADDRESS);
-
-  Wire.write(location);
-  Wire.write(data);
-
-  Wire.endTransmission();
-
-  delay(10);
+  Serial.print(nunchuk.analogX, DEC);
+  Serial.print(' ');
+  Serial.print(nunchuk.analogY, DEC);
+  Serial.print(' ');
+  Serial.print(nunchuk.accelX, DEC);
+  Serial.print(' ');
+  Serial.print(nunchuk.accelY, DEC);
+  Serial.print(' ');
+  Serial.print(nunchuk.accelZ, DEC);
+  Serial.print(' ');
+  Serial.print(nunchuk.zButton, DEC);
+  Serial.print(' ');
+  Serial.println(nunchuk.cButton, DEC);
 }
